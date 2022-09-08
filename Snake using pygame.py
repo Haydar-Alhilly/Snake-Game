@@ -69,7 +69,6 @@ def show_score(score):
 #this function for drawing the snake body
 def the_snake(SNAKE_PARTS, SIZEXY):
     for part in SNAKE_PARTS:
-        #Fucking_snake = pg.Rect(part[0] , part[1], SIZEXY, SIZEXY)
         pg.draw.rect(cell_window, RED, [part[0], part[1], SIZEXY, SIZEXY])
 
 
@@ -123,9 +122,9 @@ def losing():
         cell_window.fill(BLACK)
         end_message()
         pg.display.flip()
-        #time.sleep(3)
-        game_close = True
-        #print("your best score is " + str(score))
+        time.sleep(3)
+        print("your best score is " + str(score))
+        return True
         
         
 
@@ -173,7 +172,7 @@ def run_game():
         # here we put the hiting border losing function if wanted
         draw_content(SNAKE_PARTS, SIZEXY, score) 
         snake_growing()
-        losing()
+        game_over = losing()
         eating()
     pg.quit()
     quit()
